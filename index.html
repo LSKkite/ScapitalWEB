@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCAPITAL - Financial Investing for a Secure Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js for the wealth growth chart --><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-blue': '#0D244F',
+                        'brand-gold': '#D4AF37',
+                        'light-gray': '#F7F9FC',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* A little custom CSS for smooth scrolling and other small enhancements */
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(13, 36, 79, 0.95) 0%, rgba(20, 50, 110, 0.85) 100%);
+        }
+    </style>
+</head>
+<body class="font-inter bg-white text-gray-800">
+
+    <!-- Header Section --><header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <!-- No logo on top left --><a href="#" class="text-2xl font-bold text-brand-blue">SCAPITAL</a>
+
+                <!-- Desktop Navigation --><nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-brand-gold transition duration-300">About Us</a>
+                    <a href="#services" class="text-gray-600 hover:text-brand-gold transition duration-300">Services</a>
+                    <a href="#market-indices" class="text-gray-600 hover:text-brand-gold transition duration-300">Market Indices</a>
+                    <a href="#insights" class="text-gray-600 hover:text-brand-gold transition duration-300">Insights</a>
+                    <a href="#contact" class="text-gray-600 hover:text-brand-gold transition duration-300">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button --><button id="mobile-menu-button" class="md:hidden text-brand-blue">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu --><div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+            <a href="#about" class="block py-2 text-gray-600 hover:text-brand-gold">About Us</a>
+            <a href="#services" class="block py-2 text-gray-600 hover:text-brand-gold">Services</a>
+            <a href="#market-indices" class="block py-2 text-gray-600 hover:text-brand-gold">Market Indices</a>
+            <a href="#insights" class="block py-2 text-gray-600 hover:text-brand-gold">Insights</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-brand-gold">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section --><section id="home" class="relative text-white py-24 md:py-32 lg:py-40 bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/0D244F/FFFFFF?text=SCAPITAL');">
+            <div class="absolute inset-0 hero-gradient"></div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Financial Investing for a Secure Future</h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    Your trusted partner in navigating the world of Specialised Investment Funds and Mutual Fund Investing. We build wealth with diligence and care.
+                </p>
+                <a href="#market-indices" class="bg-brand-gold text-brand-blue font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-yellow-600 hover:shadow-xl transition-transform transform hover:-translate-y-1 duration-300 text-lg">
+                    Explore Market Returns
+                </a>
+            </div>
+        </section>
+
+        <!-- About Us Section --><section id="about" class="py-20 bg-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-brand-gold font-semibold">Who We Are</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mt-2 mb-4">Pioneering Your Financial Growth</h2>
+                        <p class="text-gray-600 mb-4">
+                            SCAPITAL is a premier financial services firm specializing in bespoke investment solutions. Our expertise lies in identifying high-potential Specialised Investment Funds and curating a diverse portfolio of mutual funds to meet the unique goals of our clients.
+                        </p>
+                        <p class="text-gray-600 mb-6">
+                            Our mission is to democratize wealth creation through transparent, data-driven, and client-centric investment strategies. We combine market intelligence with a passion for performance to deliver sustainable growth.
+                        </p>
+                         <a href="mailto:contact@Scapitalfin@gmail.com" class="text-brand-blue font-semibold border-b-2 border-brand-gold hover:text-brand-gold transition duration-300">
+                            Consult an Advisor →
+                        </a>
+                    </div>
+                    <div class="bg-brand-blue text-white rounded-lg shadow-2xl p-8 flex flex-col justify-between min-h-[400px]">
+                        <div>
+                             <h3 class="text-2xl font-bold text-brand-gold mb-3 text-center">The Magic of Compounding</h3>
+                            <p class="text-center italic text-gray-300 mb-4">"Compound interest is the eighth wonder of the world. He who understands it, earns it... he who doesn't... pays it." <span class="block text-right text-sm mt-2">- Attributed to Albert Einstein</span></p>
+
+                            <!-- Chart Canvas --><div class="mb-6 h-64">
+                                <canvas id="wealthGrowthChart"></canvas>
+                            </div>
+
+                        </div>
+                        
+                        <a href="https://lskkite.github.io/fin-app/" target="_blank" rel="noopener noreferrer" class="mt-6 bg-brand-gold text-brand-blue text-center font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-yellow-600 hover:shadow-xl transition-transform transform hover:-translate-y-1 duration-300 block">
+                            Click to find your Investing Requirement
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section --><section id="services" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <span class="text-brand-gold font-semibold">Our Expertise</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mt-2 mb-12">Tailored Investment Solutions</h2>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Service Card 1 --><div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-brand-gold hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                         <div class="text-brand-gold mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                         </div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-2">Specialised Investment Funds</h3>
+                        <p class="text-gray-600">Access exclusive, high-growth alternative investment opportunities curated by our expert research team.</p>
+                    </div>
+                    <!-- Service Card 2 --><div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-brand-gold hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-brand-gold mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 01-2-2V3h12v4l4 4z"></path><path d="M5 12v7a2 2 0 002 2h12v-5l-4-4z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-2">Mutual Fund Distribution</h3>
+                        <p class="text-gray-600">A diverse selection of top-performing mutual funds across all asset classes (EQUITY / DEBT / GOLD / SILVER) to build your ideal portfolio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Indices Section --><section id="market-indices" class="py-20 bg-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <span class="text-brand-gold font-semibold">Our Portfolio</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mt-2 mb-12">Key Market Indices (Total Return)</h2>
+                </div>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Index Card 1 --><div id="nifty50-card" class="bg-white rounded-lg shadow-md overflow-hidden p-6 border-l-4 transition-colors duration-500">
+                        <h4 class="font-bold text-xl text-brand-blue">Nifty 50 TRI</h4>
+                        <div class="mt-4">
+                            <p id="nifty50-price" class="text-3xl font-bold text-gray-800">29,185.00</p>
+                            <p id="nifty50-change" class="font-semibold transition-colors duration-500 text-green-600">+120.30 (+0.41%)</p>
+                        </div>
+                        <div class="mt-6 space-y-2 text-sm text-gray-600">
+                            <div class="flex justify-between"><span>1Y Return:</span><span class="font-bold">25.8%</span></div>
+                            <div class="flex justify-between"><span>3Y Return:</span><span class="font-bold">18.2%</span></div>
+                            <div class="flex justify-between"><span>5Y Return:</span><span class="font-bold">16.5%</span></div>
+                        </div>
+                    </div>
+                    <!-- Index Card 2 --><div id="next50-card" class="bg-white rounded-lg shadow-md overflow-hidden p-6 border-l-4 transition-colors duration-500">
+                        <h4 class="font-bold text-xl text-brand-blue">Nifty Next 50 TRI</h4>
+                        <div class="mt-4">
+                            <p id="next50-price" class="text-3xl font-bold text-gray-800">54,950.00</p>
+                            <p id="next50-change" class="font-semibold transition-colors duration-500 text-green-600">+250.75 (+0.46%)</p>
+                        </div>
+                        <div class="mt-6 space-y-2 text-sm text-gray-600">
+                            <div class="flex justify-between"><span>1Y Return:</span><span class="font-bold">58.3%</span></div>
+                            <div class="flex justify-between"><span>3Y Return:</span><span class="font-bold">22.1%</span></div>
+                            <div class="flex justify-between"><span>5Y Return:</span><span class="font-bold">19.8%</span></div>
+                        </div>
+                    </div>
+                    <!-- Index Card 3 --><div id="nifty500-card" class="bg-white rounded-lg shadow-md overflow-hidden p-6 border-l-4 transition-colors duration-500">
+                        <h4 class="font-bold text-xl text-brand-blue">Nifty 500 TRI</h4>
+                        <div class="mt-4">
+                             <p id="nifty500-price" class="text-3xl font-bold text-gray-800">25,870.00</p>
+                            <p id="nifty500-change" class="font-semibold transition-colors duration-500 text-green-600">+70.40 (+0.27%)</p>
+                        </div>
+                        <div class="mt-6 space-y-2 text-sm text-gray-600">
+                            <div class="flex justify-between"><span>1Y Return:</span><span class="font-bold">35.9%</span></div>
+                            <div class="flex justify-between"><span>3Y Return:</span><span class="font-bold">19.5%</span></div>
+                            <div class="flex justify-between"><span>5Y Return:</span><span class="font-bold">17.2%</span></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-gray-500 mt-8">*All index data reflects September 30th figures and simulates real-time changes.</p>
+            </div>
+        </section>
+        
+        <!-- Insights Section --><section id="insights" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <span class="text-brand-gold font-semibold">Market News</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mt-2 mb-12">Latest Insights & Analysis</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Blog Post --><div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/EDEDED/333333?text=Market+Trends" alt="Market graph" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">October 08, 2025 • Market Analysis</p>
+                            <h3 class="font-bold text-xl text-brand-blue mb-3">Navigating Market Volatility in Q4</h3>
+                            <p class="text-gray-600 text-sm mb-4">Strategies for investors to protect their portfolios and find opportunities amidst uncertainty.</p>
+                            <a href="#" class="font-semibold text-brand-blue hover:text-brand-gold">Read More →</a>
+                        </div>
+                    </div>
+                    <!-- Blog Post --><div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/DDEEFF/333333?text=Retirement" alt="Retirement planning" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">October 01, 2025 • Financial Planning</p>
+                            <h3 class="font-bold text-xl text-brand-blue mb-3">Is Your Retirement Plan on Track?</h3>
+                            <p class="text-gray-600 text-sm mb-4">A mid-year checklist to ensure your long-term financial goals are still within reach.</p>
+                            <a href="#" class="font-semibold text-brand-blue hover:text-brand-gold">Read More →</a>
+                        </div>
+                    </div>
+                    <!-- Blog Post --><div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/FFF0DD/333333?text=Mutual+Funds" alt="Mutual funds chart" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                             <p class="text-sm text-gray-500 mb-2">September 25, 2025 • Investing 101</p>
+                            <h3 class="font-bold text-xl text-brand-blue mb-3">The Power of Diversification in MF</h3>
+                            <p class="text-gray-600 text-sm mb-4">Understanding how spreading your investments can mitigate risk and enhance returns.</p>
+                            <a href="#" class="font-semibold text-brand-blue hover:text-brand-gold">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section --><section id="contact" class="py-20 bg-brand-blue text-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Build Your Wealth?</h2>
+                    <p class="text-gray-300 max-w-2xl mx-auto mb-10">
+                        Schedule a complimentary consultation with one of our expert financial advisors today. Let's create a personalized investment strategy for your future.
+                    </p>
+                    <a href="mailto:contact@Scapitalfin@gmail.com" class="bg-brand-gold text-brand-blue font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-yellow-600 hover:shadow-xl transition-transform transform hover:-translate-y-1 duration-300 text-lg">
+                        Schedule a Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer Section --><footer class="bg-gray-900 text-gray-400">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info --><div>
+                     <a href="#" class="text-2xl font-bold text-white mb-4 block">SCAPITAL</a>
+                    <p class="text-sm">Pioneering your financial growth through expert-led investment solutions.</p>
+                     <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M..."></path></svg></a>
+                        <!-- Add SVG paths for social icons like LinkedIn, Twitter --></div>
+                </div>
+                <!-- Quick Links --><div>
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#about" class="hover:text-brand-gold">About Us</a></li>
+                        <li class="mb-2"><a href="#services" class="hover:text-brand-gold">Services</a></li>
+                        <li class="mb-2"><a href="#market-indices" class="hover:text-brand-gold">Market Indices</a></li>
+                        <li class="mb-2"><a href="#insights" class="hover:text-brand-gold">Insights</a></li>
+                    </ul>
+                </div>
+                 <!-- Legal --><div>
+                    <h4 class="font-semibold text-white mb-4">Legal</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#" class="hover:text-brand-gold">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class="hover:text-brand-gold">Terms of Service</a></li>
+                        <li class="mb-2"><a href="#" class="hover:text-brand-gold">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info --><div>
+                    <h4 class="font-semibold text-white mb-4">Contact Us</h4>
+                    <p class="mb-2">57,Bazullah Road,Tnagar,chennai</p>
+                    <p class="mb-2">contact@Scapitalfin@gmail.com</p>
+                    <p>+1 (234) 567-8900</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-sm">
+                <p>&copy; 2025 SCAPITAL. All Rights Reserved.</p>
+                <p class="mt-2">Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Mobile menu toggle script ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+            for (let i = 0; i < mobileMenuLinks.length; i++) {
+                mobileMenuLinks[i].addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            }
+
+            // --- Real-time Index Simulation Script ---
+            const indices = {
+                nifty50: {
+                    basePrice: 29185.00, // Sept 30th figure
+                    priceEl: document.getElementById('nifty50-price'),
+                    changeEl: document.getElementById('nifty50-change'),
+                    cardEl: document.getElementById('nifty50-card')
+                },
+                next50: {
+                    basePrice: 54950.00, // Sept 30th figure
+                    priceEl: document.getElementById('next50-price'),
+                    changeEl: document.getElementById('next50-change'),
+                    cardEl: document.getElementById('next50-card')
+                },
+                nifty500: {
+                    basePrice: 25870.00, // Sept 30th figure
+                    priceEl: document.getElementById('nifty500-price'),
+                    changeEl: document.getElementById('nifty500-change'),
+                    cardEl: document.getElementById('nifty500-card')
+                }
+            };
+
+            function updateIndex(index) {
+                const randomFactor = (Math.random() - 0.5) * 0.002; // Increased fluctuation for more dynamic feel
+                const change = index.basePrice * randomFactor;
+                const newPrice = index.basePrice + change;
+                const percentageChange = (change / index.basePrice) * 100;
+                
+                const sign = change >= 0 ? '+' : '';
+                const colorClass = change >= 0 ? 'text-green-600' : 'text-red-600';
+                const borderClass = change >= 0 ? 'border-green-500' : 'border-red-500';
+
+                index.priceEl.textContent = newPrice.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                index.changeEl.textContent = `${sign}${change.toFixed(2)} (${sign}${percentageChange.toFixed(2)}%)`;
+                
+                index.changeEl.className = `font-semibold transition-colors duration-500 ${colorClass}`;
+                index.cardEl.classList.remove('border-green-500', 'border-red-500'); // Remove previous border
+                index.cardEl.classList.add(borderClass);
+            }
+
+            function updateAllIndices() {
+                for (const key in indices) {
+                    updateIndex(indices[key]);
+                }
+            }
+
+            // Initial update for static figures (Sept 30th)
+            // The first `updateAllIndices()` call will set the initial numbers and colors based on basePrice.
+            // For September 30th figures, we'll manually set them first, then apply the simulation.
+            indices.nifty50.priceEl.textContent = '29,185.00';
+            indices.nifty50.changeEl.textContent = '+120.30 (+0.41%)'; // Assuming this was the change on Sept 30th or desired initial change
+            indices.nifty50.changeEl.classList.add('text-green-600');
+            indices.nifty50.cardEl.classList.add('border-green-500');
+
+            indices.next50.priceEl.textContent = '54,950.00';
+            indices.next50.changeEl.textContent = '+250.75 (+0.46%)';
+            indices.next50.changeEl.classList.add('text-green-600');
+            indices.next50.cardEl.classList.add('border-green-500');
+
+            indices.nifty500.priceEl.textContent = '25,870.00';
+            indices.nifty500.changeEl.textContent = '+70.40 (+0.27%)';
+            indices.nifty500.changeEl.classList.add('text-green-600');
+            indices.nifty500.cardEl.classList.add('border-green-500');
+            
+            // Start the simulation after setting initial Sept 30th figures
+            setInterval(updateAllIndices, 3000); // Update every 3 seconds
+
+            // --- Wealth Growth Chart Script ---
+            const ctx = document.getElementById('wealthGrowthChart').getContext('2d');
+            const principal = 10000; // Rs. 10,000 per month
+            const annualRate = 0.12; // 12% annual return
+            const monthlyRate = annualRate / 12;
+
+            function calculateFutureValue(monthlyInvestment, monthlyRate, numMonths) {
+                let futureValue = 0;
+                for (let i = 0; i < numMonths; i++) {
+                    futureValue = (futureValue + monthlyInvestment) * (1 + monthlyRate);
+                }
+                return futureValue;
+            }
+
+            const currentAge = 60; // Target retirement age
+
+            // Data for the chart
+            const datasets = [];
+            const ages = [20, 25, 30, 35, 40, 45];
+            const colors = ['#D4AF37', '#e1c25f', '#eed782', '#fbeba8', '#ffeaa7', '#fffacd']; // Shades of gold/yellow
+
+            ages.forEach((startAge, index) => {
+                const yearsToInvest = currentAge - startAge;
+                if (yearsToInvest > 0) {
+                    const numMonths = yearsToInvest * 12;
+                    const accumulatedWealth = calculateFutureValue(principal, monthlyRate, numMonths);
+                    
+                    datasets.push({
+                        label: `Start at ${startAge} yrs (Approx. ₹${(accumulatedWealth / 100000).toFixed(1)} L)`,
+                        data: Array(ages.length).fill(null).map((_, i) => {
+                            if (ages[i] >= startAge) {
+                                const yti = currentAge - ages[i];
+                                if (yti >= 0) {
+                                    return calculateFutureValue(principal, monthlyRate, yti * 12);
+                                }
+                            }
+                            return null;
+                        }),
+                        borderColor: colors[index],
+                        backgroundColor: colors[index],
+                        fill: false,
+                        tension: 0.3,
+                        pointRadius: 3
+                    });
+                }
+            });
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ages.map(age => `Start Age ${age}`),
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: 'white' // Legend text color
+                            }
+                        },
+                        title: {
+                            display: false,
+                            text: 'Wealth Growth by Starting Age (10k/month @ 12%)',
+                            color: 'white'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Starting Age',
+                                color: 'white'
+                            },
+                            ticks: {
+                                color: 'white' // X-axis labels
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)' // X-axis grid lines
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Accumulated Wealth (₹)',
+                                color: 'white'
+                            },
+                            ticks: {
+                                color: 'white', // Y-axis labels
+                                callback: function(value, index, values) {
+                                    if (value >= 10000000) return '₹' + (value / 10000000).toFixed(1) + ' Cr';
+                                    if (value >= 100000) return '₹' + (value / 100000).toFixed(1) + ' L';
+                                    return '₹' + value.toLocaleString();
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)' // Y-axis grid lines
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
