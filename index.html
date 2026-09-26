@@ -123,14 +123,24 @@
                          <div class="text-brand-gold mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
                          </div>
-                        <h3 class="text-xl font-bold text-brand-blue mb-2">Specialized Investment Funds</h3>
+                        <h3 class="text-xl font-bold text-brand-blue mb-2 inline-flex items-center justify-center">Specialized Investment Funds
+    <span class="info-tooltip">
+        <span class="info-icon" tabindex="0" role="button" aria-label="What is a Specialized Investment Fund (SIF)?">i</span>
+        <span class="tooltip-box">A SEBI-regulated category (effective Apr 2025) sitting between mutual funds and PMS. Minimum investment: &#8377;10 lakh per investor (PAN-level, across strategies). Allows higher-flexibility strategies such as long-short equity, sector rotation and higher concentration limits &mdash; suited to investors with a higher risk appetite.</span>
+    </span>
+</h3>
                         <p class="text-gray-600">Access exclusive, high-growth Specialized Investment Fund (SIF) opportunities curated by our expert research team.</p>
                     </div>
                     <!-- Service Card 2 --><div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-brand-gold hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
                         <div class="text-brand-gold mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 01-2-2V3h12v4l4 4z"></path><path d="M5 12v7a2 2 0 002 2h12v-5l-4-4z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-brand-blue mb-2">Mutual Funds</h3>
+                        <h3 class="text-xl font-bold text-brand-blue mb-2 inline-flex items-center justify-center">Mutual Funds
+    <span class="info-tooltip">
+        <span class="info-icon" tabindex="0" role="button" aria-label="What is a Mutual Fund?">i</span>
+        <span class="tooltip-box">A pooled investment vehicle regulated under SEBI (Mutual Funds) Regulations, 1996. Money from many investors is professionally managed by an AMC across stocks, bonds, gold or other assets. Open to all investors &mdash; SIPs can start from as low as &#8377;500/month, with daily liquidity in open-ended schemes.</span>
+    </span>
+</h3>
                         <p class="text-gray-600">A diverse selection of top-performing mutual funds across all asset classes (EQUITY / DEBT / GOLD / SILVER / REIT / InVIT) to build your ideal portfolio.</p>
                     </div>
                 </div>
@@ -463,8 +473,28 @@
                 
                 closeModal();
                 consultationForm.reset();
+                
             });
-
+            // --- Info tooltip: tap-to-toggle for touch devices (hover already works via CSS) ---
+            document.querySelectorAll('.info-tooltip .info-icon').forEach((icon) => {
+                icon.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const wrapper = icon.closest('.info-tooltip');
+                    document.querySelectorAll('.info-tooltip.active').forEach((el) => {
+                        if (el !== wrapper) el.classList.remove('active');
+                    });
+                    wrapper.classList.toggle('active');
+                });
+                icon.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        icon.click();
+                    }
+                });
+            });
+            document.addEventListener('click', () => {
+                document.querySelectorAll('.info-tooltip.active').forEach((el) => el.classList.remove('active'));
+            });
             // --- Wealth Growth Chart Script ---
             const ctx = document.getElementById('wealthGrowthChart').getContext('2d');
             const principal = 10000;
@@ -554,6 +584,35 @@
   }
   .blink-icon {
     animation: swp-blink 1s steps(1) infinite;
+  }
+          .info-tooltip { position: relative; display: inline-flex; align-items: center; margin-left: 7px; vertical-align: middle; }
+  .info-tooltip .info-icon {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: rgba(212,175,55,0.15); color: #D4AF37; border: 1.5px solid #D4AF37;
+    font-size: 12px; font-weight: 700; font-style: italic; font-family: Georgia, serif;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; line-height: 1; user-select: none;
+  }
+  .info-tooltip .tooltip-box {
+    visibility: hidden; opacity: 0; position: absolute; bottom: calc(100% + 10px); left: 50%;
+    transform: translateX(-50%) translateY(4px); width: 270px; max-width: 80vw;
+    background: #0D244F; color: #F7F9FC; text-align: left; padding: 12px 14px; border-radius: 8px;
+    font-size: 13px; font-weight: 400; line-height: 1.5; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 1px solid #D4AF37; z-index: 30; pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  }
+  .info-tooltip .tooltip-box::after {
+    content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    border-width: 6px; border-style: solid; border-color: #D4AF37 transparent transparent transparent;
+  }
+  .info-tooltip:hover .tooltip-box,
+  .info-tooltip.active .tooltip-box {
+    visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0);
+  }
+  @media (max-width: 640px) {
+    .info-tooltip .tooltip-box { left: auto; right: -16px; transform: translateY(4px); }
+    .info-tooltip.active .tooltip-box, .info-tooltip:hover .tooltip-box { transform: translateY(0); }
+    .info-tooltip .tooltip-box::after { left: auto; right: 22px; transform: none; }
   }
 </style>
 </body>
